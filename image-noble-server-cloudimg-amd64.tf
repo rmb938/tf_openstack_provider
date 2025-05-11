@@ -24,8 +24,11 @@ resource "terraform_data" "noble-server-cloudimg-amd64" {
 }
 
 resource "openstack_images_image_v2" "noble-server-cloudimg-amd64" {
-  for_each = terraform_data.noble-server-cloudimg-amd64
-  name     = "Ubuntu Noble LTS Server Cloud AMD64 - ${each.key}"
+  for_each = local.ubuntu_noble_lts_amd64_images
+
+  depends_on = [terraform_data.noble-server-cloudimg-amd64]
+
+  name = "Ubuntu Noble LTS Server Cloud AMD64 - ${each.key}"
 
   local_file_path = "/tmp/noble-server-cloudimg-amd64-${each.key}.raw"
 
