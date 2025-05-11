@@ -16,6 +16,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install qemu-utils
+        run: |
+          sudo apt update
+          sudo apt install -y qemu-utils 
+
       - name: Tailscale
         uses: tailscale/github-action@v3
         with:
