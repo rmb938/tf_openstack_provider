@@ -41,6 +41,13 @@ resource "openstack_images_image_v2" "noble-server-cloudimg-amd64" {
     hw_firmware_type = "uefi"
     os_secure_boot   = "required"
     hw_machine_type  = "q35"
+
+    os_type    = "linux"
+    os_distro  = "ubuntu"
+    os_version = "24.04"
+
+    hw_vif_model              = "virtio"
+    hw_vif_multiqueue_enabled = "true"
   }
 
   tags = concat([
