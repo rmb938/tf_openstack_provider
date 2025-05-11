@@ -14,6 +14,10 @@ locals {
 resource "terraform_data" "noble-server-cloudimg-amd64" {
   for_each = local.ubuntu_noble_lts_amd64_images
 
+  # This will always trigger a replace and make plans ugly
+  # No nice way around this right now though
+  triggers_replace = timestamp()
+
   provisioner "local-exec" {
     command = "curl -o /tmp/noble-server-cloudimg-amd64-${each.key}.img ${each.value.url}"
   }
