@@ -1,7 +1,7 @@
 locals {
   ubuntu_noble_lts_amd64_images = {
     "20250516": {
-      url = "https://mirrors.rit.edu/ubuntu-cloud/cloud-images/noble/20250516/noble-server-cloudimg-amd64.img"
+      url  = "https://mirrors.rit.edu/ubuntu-cloud/cloud-images/noble/20250516/noble-server-cloudimg-amd64.img"
       tags = ["latest"]
     }
     "20250502.1" : {
